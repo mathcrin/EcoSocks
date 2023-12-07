@@ -1,0 +1,57 @@
+.jeu {
+  width: 100%;
+  max-height: 50vh;
+}
+
+.infos{
+  padding-top: 5vh;
+  text-align: center;
+  width: 100%;
+  max-height: 50vh;
+}
+
+h1{
+  color: aliceblue;
+  font-family: SignPainter;
+  text-align: center;
+}
+
+.snow{
+  z-index: -1;
+  position:absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2000px;
+  background: url("./ressources/images/neigequitombe.png");
+
+  animation: fall 10s linear infinite;
+}
+
+@keyframes fall {
+  0%{
+    transform: translateY(-1000px);
+  }
+}
+
+.column {
+  flex: 1;
+  padding: 10px;
+  margin: 5px;
+  box-sizing: border-box;
+}
+
+.row{
+
+}
+
+@media (max-width: 767px) {
+  /* Appliquer ces styles pour les écrans jusqu'à 767 pixels de largeur */
+  .row {
+    flex-direction: column; /* Afficher les cartes en colonnes sur les petits écrans */
+  }
+
+  .column {
+    margin-bottom: 16px; /* Ajouter un espace entre les cartes sur les petits écrans */
+  }
+}
