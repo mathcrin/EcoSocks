@@ -1,21 +1,12 @@
-<html>
-<div class="jeu">
-  <div class="title">
+<div class="title">
     <h1>Qu'est ce qui emet le moins</h1>
-  </div>
-
-
-  <div class="row">
-    <div class="column">
-      <app-card></app-card>
-      <router-outlet></router-outlet>
-    </div>
-
-    <div class="column">
-      <app-card></app-card>
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-
 </div>
-</html>
+
+<div class="jeu">
+    <app-tableau-card></app-tableau-card>
+    <div class="snow"></div>
+</div>
+
+<div class="infos">
+    <app-consommation></app-consommation>
+</div>
