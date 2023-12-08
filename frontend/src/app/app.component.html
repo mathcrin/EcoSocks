@@ -1,6 +1,6 @@
 <script src="https://kit.fontawesome.com/6586f83c70.js" crossorigin="anonymous"></script>
 
-<div class="home" (click)="changeOpacity()" [style.opacity]="opacityValue" [class.clickable]="opacityValue == 0.4">
+<div class="home" (click)="changeOpacity(); getValueFromCookie()" [style.opacity]="opacityValue" [class.clickable]="opacityValue == 0.4">
     <div class="row">
         <div class="column" style="flex: 1;">
             <div class="title">
@@ -27,14 +27,14 @@
 
     <div *ngIf="showScoreTable" class="score-table">
         <h2>Tableau des scores</h2>
-        <table *ngIf="Scores != null">
+        <table >
             <thead>
             <tr>
                 <th>Meilleurs Scores</th>
             </tr>
             </thead>
-            <tbody>
-            <tr *ngFor="let score of Scores">
+            <tbody >
+            <tr style="text-align: center;" *ngFor="let score of Scores">
                 <td>{{ score }}</td>
             </tr>
             </tbody>
@@ -49,6 +49,8 @@
     <app-consommation></app-consommation>
     <img src="assets/Infographie-Carree-Bon-Pote-INVBC3-1024x1024.webp" alt="nombrs">
 </div>
+
+<script src="./js/konami.js"></script>
 
 <footer>
     <div class="ligne"><div class="col left">EcoSoks</div><div class="col right"><a href="https://reseauactionclimat.org">Réseau action climat</a></div> </div>

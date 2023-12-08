@@ -27,14 +27,17 @@ import { CookieService } from 'ngx-cookie-service';
     ],
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
     constructor(private http: HttpClient, private cookieService: CookieService) {
     }
+
+
 
     title = 'FrontEndEcoSocks';
     opacityValue = 0.4;
     opacityValueInfos = 1;
     points = 0;
+    randomId = 0;
     showScoreTable = false;
     Scores = null;
 
@@ -56,13 +59,14 @@ export class AppComponent {
     ngOnInit() {
         // Appel de la fonction pour récupérer les cartes au chargement du composant
         if(this.getValueFromCookie() != null){
-            this.http.get<number>('http://localhost:8080/jeux/score/' + this.getValueFromCookie()).subscribe((data) => {
+            this.http.get<number>('http://localhost:8080/jeux/score/502').subscribe((data) => {
                 this.points = data;
             });
-            this.http.get<Carte>('http://localhost:8080/cartes' + this.getValueFromCookie()).subscribe((data) => {
+            //Normalement nous devriosn récupérer l'id partie depusi les cookies
+            this.http.get<Carte>('http://localhost:8080/cartes/start/1').subscribe((data) => {
                 this.carteGauche = data;
             });
-            this.http.get<Carte>('http://localhost:8080/cartes/' + this.getValueFromCookie()).subscribe((data) => {
+            this.http.get<Carte>('http://localhost:8080/cartes/502').subscribe((data) => {
                 this.carteDroite = data;
             });
         } else {
@@ -70,28 +74,31 @@ export class AppComponent {
             this.http.get<Carte>('http://localhost:8080/cartes/start/1').subscribe((data) => {
                 this.carteGauche = data;
             });
-            this.http.get<Carte>('http://localhost:8080/cartes/start/2' + this.getValueFromCookie()).subscribe((data) => {
+            this.http.get<Carte>('http://localhost:8080/cartes/start/2').subscribe((data) => {
                 this.carteDroite = data;
             });
         }
 
-        this.http.get<Carte>('http://localhost:8080/jeux/scores' + this.getValueFromCookie()).subscribe((data) => {
+        this.http.get<Carte>('http://localhost:8080/jeux/scores/502').subscribe((data) => {
             // @ts-ignore
             this.Scores = data;
         });
     }
 
+    triggerKonamiAction() {
+        window.open("https://operfield.github.io/RabbidsLeak/", "_blank");
+    }
+
     generateRandomId() {
-        let randomId = 0;
         // Générer un ID aléatoire en utilisant la méthode Math.random()
-        this.http.get<number>('http://localhost:8080/jeux/generate' + this.getValueFromCookie()).subscribe((data) => {
-            randomId = data;
+        this.http.get<number>('http://localhost:8080/jeux/generate/502').subscribe((data) => {
+            this.randomId = data;
         });
 
         // Stocker l'ID dans un cookie avec le nom "userId"
-        this.cookieService.set('userId', randomId.toString());
+        this.cookieService.set('userId', String(this.randomId));
 
-        console.log('ID aléatoire généré et stocké dans le cookie :', randomId);
+        console.log('ID aléatoire généré et stocké dans le cookie :', this.randomId);
     }
 
     getValueFromCookie() {
@@ -116,7 +123,7 @@ export class AppComponent {
         // Ajoutez une nouvelle carte à la fin
         if (this.carteGauche && this.carteDroite) {
             this.carteGauche = this.carteDroite;
-            this.http.get<Carte>('http://localhost:8080/cartes/' + this.getValueFromCookie()).subscribe((data) => {
+            this.http.get<Carte>('http://localhost:8080/cartes/502').subscribe((data) => {
                 this.carteDroite = data;
             });
         }
