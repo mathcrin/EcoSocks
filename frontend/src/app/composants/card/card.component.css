@@ -1,7 +1,7 @@
 /* card.component.css */
 
 .card {
-
+    cursor: pointer;
   border: 1px solid #ddd;
   border-radius: 8px;
   position: relative;
@@ -10,18 +10,19 @@
   margin: 16px;
   transition: transform 0.2s ease-in-out;
   height: 100%;
-  background-color: dimgrey;
+  background-color: lightsteelblue;
 }
 
 .card:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .card img {
-  display: block;
-  margin-top: 15px;
-  width: 100%;
-  height: fit-content;
+
+    display: flex;
+    margin-top: 15px;
+    width: 25lh;
+    height: 25vh;
 }
 
 .card-body {
@@ -29,8 +30,9 @@
 }
 
 .card-title {
-  text-align: center;
-  color: aliceblue;
-  font-size: 1.2em;
-  margin-bottom: 8px;
+    font-family: SignPainter, serif;
+    text-align: center;
+    color: aliceblue;
+    font-size: 1.5em;
+    margin-bottom: 8px;
 }

@@ -6,6 +6,10 @@
     border-right: 1px solid #fff; /* Ajoute une bordure droite blanche entre les colonnes */
 }
 
+.column:last-child {
+    border-right: none; /* Supprime la bordure droite de la dernière colonne */
+}
+
 .row {
     display: flex;
 }

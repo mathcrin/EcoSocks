@@ -1,10 +1,15 @@
-<div class="title">
-    <h1>Qu'est ce qui emet le moins</h1>
-</div>
+<div (click)="changeOpacity()" [style.opacity]="opacityValue" [class.clickable]="opacityValue == 0.6">
+    <div class="title">
+        <h1>Qu'est ce qui emet le moins</h1>
+    </div>
 
-<div class="jeu">
-    <app-tableau-card></app-tableau-card>
-    <div class="snow"></div>
+    <div class="jeu">
+        <app-tableau-card [carteGauche]="carteGauche"
+                          [carteDroite]="carteDroite"
+                          [animationState]="animationState"
+                          (cardClick)="onCardClick($event)"></app-tableau-card>
+        <div class="snow"></div>
+    </div>
 </div>
 
 <div class="infos">

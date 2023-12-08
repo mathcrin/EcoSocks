@@ -1,0 +1,36 @@
+/* card.component.css */
+
+.card {
+
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 16px;
+  transition: transform 0.2s ease-in-out;
+  height: 100%;
+  background-color: dimgrey;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  display: block;
+  margin-top: 15px;
+  width: 100%;
+  height: fit-content;
+}
+
+.card-body {
+  padding: 16px;
+}
+
+.card-title {
+  text-align: center;
+  color: aliceblue;
+  font-size: 1.2em;
+  margin-bottom: 8px;
+}
