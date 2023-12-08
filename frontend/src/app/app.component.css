@@ -16,6 +16,33 @@ h1{
   text-align: center;
 }
 
+footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: #dddddd;
+
+  flex: 1;
+  padding: 30px;
+  /* Empêcher le footer de se superposer au contenu */
+
+
+}
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+.col {
+  flex: 1;
+}
+
+.ligne{
+  display: flex;
+  justify-content: space-between;
+}
 .snow{
   z-index: -1;
   position:absolute;
@@ -36,4 +63,16 @@ h1{
 
 .clickable {
   cursor: pointer;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.column {
+  padding: 10px;
+  margin: 5px;
+  box-sizing: border-box;
 }

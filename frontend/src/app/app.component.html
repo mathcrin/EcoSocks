@@ -1,17 +1,55 @@
-<div (click)="changeOpacity()" [style.opacity]="opacityValue" [class.clickable]="opacityValue == 0.6">
-    <div class="title">
-        <h1>Qu'est ce qui emet le moins</h1>
+<script src="https://kit.fontawesome.com/6586f83c70.js" crossorigin="anonymous"></script>
+
+<div class="home" (click)="changeOpacity()" [style.opacity]="opacityValue" [class.clickable]="opacityValue == 0.4">
+    <div class="row">
+        <div class="column" style="flex: 1;">
+            <div class="title">
+                <h1>Qu'est ce qui emet le moins ?</h1>
+            </div>
+        </div>
+        <div class="column" style="flex: 1">
+            <div style="text-align: right">
+                <h1>{{ points }}</h1>
+            </div>
+        </div>
     </div>
 
     <div class="jeu">
         <app-tableau-card [carteGauche]="carteGauche"
                           [carteDroite]="carteDroite"
                           [animationState]="animationState"
-                          (cardClick)="onCardClick($event)"></app-tableau-card>
+                          (cardClick)="onCardClick($event)"
+                          (droite)="onDroite($event)"
+                          (gauche)="onGauche($event)"
+                          ></app-tableau-card>
         <div class="snow"></div>
+    </div>
+
+    <div *ngIf="showScoreTable" class="score-table">
+        <h2>Tableau des scores</h2>
+        <table *ngIf="Scores != null">
+            <thead>
+            <tr>
+                <th>Meilleurs Scores</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Limitez l'affichage à dix résultats -->
+            <tr *ngFor="let score of Scores">
+                <td>{{ score }}</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 
-<div class="infos">
+<div class="infos" [style.opacity]="opacityValueInfos" (click)="changeOpacity2()" [class.clickable]="opacityValueInfos == 0.4">
+    <div>
+        <h1>Quelques Chiffres</h1>
+    </div>
     <app-consommation></app-consommation>
 </div>
+
+<footer>
+    <div class="ligne"><div class="col left">EcoSoks</div><div class="col right"><a href="https://reseauactionclimat.org">Réseau action climat</a></div> </div>
+</footer>

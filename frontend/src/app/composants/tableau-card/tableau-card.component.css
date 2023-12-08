@@ -10,11 +10,6 @@
     margin: 5px;
     box-sizing: border-box;
 }
-
-.row {
-    display: flex;
-}
-
 @media (max-width: 767px) {
     /* Appliquer ces styles pour les écrans jusqu'à 767 pixels de largeur */
     .row {

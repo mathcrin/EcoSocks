@@ -1,6 +1,8 @@
 /* card.component.css */
 
 .card {
+display: flex;
+    flex-direction: column;
     cursor: pointer;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -11,18 +13,19 @@
   transition: transform 0.2s ease-in-out;
   height: 100%;
   background-color: lightsteelblue;
+
 }
 
 .card:hover {
     transform: scale(1.05);
 }
 
-.card img {
-
-    display: flex;
+.imeg {
     margin-top: 15px;
     width: 25lh;
     height: 25vh;
+   align-self: center;
+    justify-self: center;
 }
 
 .card-body {

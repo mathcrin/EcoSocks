@@ -1,9 +1,9 @@
 <div class="row">
     <div class="column">
-        <app-card [carte]="carteGauche" (click)="onCardClick(carteGauche)"></app-card>
+        <app-card [carte]="carteGauche" (click)="onCardClick(carteGauche); onGauche(true)" ></app-card>
     </div>
 
     <div class="column">
-        <app-card [carte]="carteDroite" (click)="onCardClick(carteDroite)"></app-card>
+        <app-card [carte]="carteDroite" (click)="onCardClick(carteDroite); onDroite(true)"></app-card>
     </div>
 </div>
