@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
@@ -62,11 +63,17 @@ public class QuestionService {
 
         Carte temp = cartes.get(r.nextInt(cartes.size()));
         j.getIdParcourus().add(temp);
+        j.setScore(j.getScore()+1);
         jeuRepository.save(j);
         return temp;
     }
 
     public List<Carte> ajouterCartes(List<Carte> cartes) {
         return questionRepository.saveAll(cartes);
+    }
+
+    public Carte carteDebut(Integer id) {
+        Optional<Carte> optCarte = this.questionRepository.findById(id);
+        return optCarte.orElse(null);
     }
 }
