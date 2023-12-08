@@ -56,6 +56,9 @@ export class AppComponent {
     ngOnInit() {
         // Appel de la fonction pour récupérer les cartes au chargement du composant
         if(this.getValueFromCookie() != null){
+            this.http.get<number>('http://localhost:8080/jeux/score/' + this.getValueFromCookie()).subscribe((data) => {
+                this.points = data;
+            });
             this.http.get<Carte>('http://localhost:8080/cartes' + this.getValueFromCookie()).subscribe((data) => {
                 this.carteGauche = data;
             });
