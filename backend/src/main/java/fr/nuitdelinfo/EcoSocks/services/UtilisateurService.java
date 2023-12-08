@@ -11,11 +11,7 @@ import fr.nuitdelinfo.EcoSocks.entities.Utilisateur;
 public class UtilisateurService {
     @Autowired
     private UtilisateurRepository utilisateurRepository;
-
-    public Utilisateur avoirTousUtilisateur() {
-        return utilisateurRepository.findAll().get(0);
-    }
-
+    
     public Utilisateur modifierUtilisateur(PutUtilisateurRequest body) {
         Utilisateur utilisateur = Utilisateur.builder()
                 .id(body.getId())
