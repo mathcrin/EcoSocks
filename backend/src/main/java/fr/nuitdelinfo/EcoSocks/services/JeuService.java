@@ -35,4 +35,18 @@ public class JeuService {
         } while(this.jeuRepository.findById(id).isPresent());
         return id;
     }
+
+    public Integer getScore(Integer id) {
+        return jeuRepository.getReferenceById(id).getScore();
+    }
+
+    public List<GetScoreResponse> getScore() {
+        List<Jeu> scores = this.jeuRepository.findAll();
+        scores.sort(Comparator.comparingInt(Jeu::getScore));
+        return scores.stream().map(x ->
+                GetScoreResponse.builder()
+                        .score(x.getScore())
+                        .utilisateur(null)
+                        .build()).toList();
+    }
 }

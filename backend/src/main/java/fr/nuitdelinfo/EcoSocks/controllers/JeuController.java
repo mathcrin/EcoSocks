@@ -42,4 +42,14 @@ public class JeuController {
         return ResponseEntity.ok(jeuService.generateId());
     }
 
+    @GetMapping("/score/{id}")
+    public ResponseEntity<Integer> getScore(@PathVariable Integer id){
+        return ResponseEntity.ok(jeuService.getScore(id));
+    }
+
+    @GetMapping("/scores")
+    public ResponseEntity<List<GetScoreResponse>> getScore(){
+        List<GetScoreResponse> scores = this.jeuService.getScore();
+        return ResponseEntity.ok(scores);
+    }
 }
