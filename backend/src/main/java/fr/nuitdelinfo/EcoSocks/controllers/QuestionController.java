@@ -29,13 +29,8 @@ public class QuestionController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Carte> getCarte(@PathVariable(required = false) Integer id){
+    public ResponseEntity<Carte> getCarte(@PathVariable Integer id){
         // Si l'id est null, on change l'id de la carte pour qu'elle contienne l'id attribué à la partie
-        if (id == null){
-            // Création d'un utilisateur
-            
-
-        }
         Carte temp;
         try {
             temp = questionService.obtenirCarte(id);
@@ -44,6 +39,6 @@ public class QuestionController {
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
         }
-        return temp == null ? ResponseEntity.noContent().build(): ResponseEntity.ok(temp);
+        return (temp == null ? ResponseEntity.noContent().build() : ResponseEntity.ok(temp));
     }
 }

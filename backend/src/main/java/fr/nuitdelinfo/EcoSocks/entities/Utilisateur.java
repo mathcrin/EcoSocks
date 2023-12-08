@@ -22,7 +22,7 @@ public class Utilisateur {
     @Column(name = "pseudo")
     private String pseudo;
 
-    @OneToMany(mappedBy = "utilisateur", orphanRemoval = true)
+    @ManyToMany(mappedBy = "utilisateur")
     private List<Jeu> jeux = new ArrayList<>();
 
     public Utilisateur(Integer id){

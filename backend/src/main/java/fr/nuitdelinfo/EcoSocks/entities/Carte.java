@@ -7,6 +7,8 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.validator.constraints.URL;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -33,4 +35,10 @@ public class Carte {
     @Column(name = "intitule", nullable = false, length = 500)
     private String intitule;
 
+    @ManyToMany
+    @JoinTable(name="JEU_CARTE",
+            joinColumns=@JoinColumn(name="id_carte"),
+            inverseJoinColumns=@JoinColumn(name="id_jeu")
+    )
+    private List<Jeu> jeux_id;
 }

@@ -15,13 +15,11 @@ import java.util.List;
 @Table(name = "jeu")
 public class Jeu {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private Utilisateur utilisateur;
+    @ManyToMany
+    private List<Utilisateur> utilisateur;
 
     @Column(name = "finish", nullable = false)
     private boolean finish;
@@ -29,8 +27,11 @@ public class Jeu {
     @Column(name = "score")
     private Integer score;
 
-    @OneToMany
-    @Column(name = "idParcourus")
+    @ManyToMany
+    @JoinTable(name="JEU_CARTE",
+            joinColumns=@JoinColumn(name="id_jeu"),
+            inverseJoinColumns=@JoinColumn(name="id_carte")
+    )
     private List<Carte> idParcourus;
 
     public Jeu (Integer id){
