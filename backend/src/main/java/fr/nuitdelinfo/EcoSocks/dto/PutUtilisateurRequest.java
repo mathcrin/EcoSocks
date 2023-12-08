@@ -11,7 +11,7 @@ import java.util.List;
  */
 @Value
 public class PutUtilisateurRequest implements Serializable {
-    Integer id;
-    String pseudo;
-    List<Jeu> jeux;
+    private Integer id;
+    private String pseudo;
+    private List<Jeu> jeux;
 }

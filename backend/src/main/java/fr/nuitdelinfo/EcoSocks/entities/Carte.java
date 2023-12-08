@@ -30,4 +30,7 @@ public class Carte {
     @Column(name = "emission_co2", nullable = false)
     private Double emissionCO2;
 
+    @Column(name = "intitule", nullable = false, length = 500)
+    private String intitule;
+
 }

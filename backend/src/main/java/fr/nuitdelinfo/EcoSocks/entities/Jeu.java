@@ -3,6 +3,9 @@ package fr.nuitdelinfo.EcoSocks.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -26,4 +29,14 @@ public class Jeu {
     @Column(name = "score")
     private Integer score;
 
+    @OneToMany
+    @Column(name = "idParcourus")
+    private List<Carte> idParcourus;
+
+    public Jeu (Integer id){
+        this.id = id;
+        this.utilisateur = null;
+        this.score = 1;
+        this.idParcourus = new ArrayList<>();
+    }
 }

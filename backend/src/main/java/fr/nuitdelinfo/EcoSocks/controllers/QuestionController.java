@@ -28,29 +28,22 @@ public class QuestionController {
         return ResponseEntity.status(HttpStatus.CREATED).body(temp);
     }
 
-    @GetMapping
-    public ResponseEntity<Carte> getCarte(){
+    @GetMapping("/{id}")
+    public ResponseEntity<Carte> getCarte(@PathVariable(required = false) Integer id){
+        // Si l'id est null, on change l'id de la carte pour qu'elle contienne l'id attribué à la partie
+        if (id == null){
+            // Création d'un utilisateur
+            
+
+        }
         Carte temp;
         try {
-            temp = questionService.obtenirCarte();
+            temp = questionService.obtenirCarte(id);
         } catch (NotFoundException e) {
             return ResponseEntity.noContent().build();
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
         }
-        return ResponseEntity.ok(temp);
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Carte> getCarte(@PathVariable Integer id){
-        Carte temp;
-        try {
-            temp = questionService.obtenirCarte(id);
-        } catch (NotFoundException e) {
-            return ResponseEntity.notFound().build();
-        } catch (Exception e) {
-            return ResponseEntity.internalServerError().build();
-        }
-        return ResponseEntity.ok(temp);
+        return temp == null ? ResponseEntity.noContent().build(): ResponseEntity.ok(temp);
     }
 }

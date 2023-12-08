@@ -25,4 +25,10 @@ public class Utilisateur {
     @OneToMany(mappedBy = "utilisateur", orphanRemoval = true)
     private List<Jeu> jeux = new ArrayList<>();
 
+    public Utilisateur(Integer id){
+        this.id = id;
+        this.pseudo = null;
+        this.jeux = new ArrayList<>();
+    }
+
 }

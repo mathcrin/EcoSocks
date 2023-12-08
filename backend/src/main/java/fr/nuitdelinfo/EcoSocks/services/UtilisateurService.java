@@ -12,9 +12,7 @@ public class UtilisateurService {
     @Autowired
     private UtilisateurRepository utilisateurRepository;
 
-    public Utilisateur avoirTousUtilisateur() {
-        return utilisateurRepository.findAll().get(0);
-    }
+    public Utilisateur(Integer id){}
 
     public Utilisateur modifierUtilisateur(PutUtilisateurRequest body) {
         Utilisateur utilisateur = Utilisateur.builder()

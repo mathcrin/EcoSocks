@@ -14,6 +14,8 @@ import java.io.Serializable;
 @Builder
 @AllArgsConstructor
 public class CreateCarteRequest implements Serializable {
-    String imageURL;
-    Double emissionCO2;
+    private String imageURL;
+    private Double emissionCO2;
+    private String intitule;
+
 }
