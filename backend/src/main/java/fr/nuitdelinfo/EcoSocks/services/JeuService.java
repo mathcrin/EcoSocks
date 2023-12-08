@@ -1,5 +1,6 @@
 package fr.nuitdelinfo.EcoSocks.services;
 
+import fr.nuitdelinfo.EcoSocks.dto.GetScoreResponse;
 import fr.nuitdelinfo.EcoSocks.entities.Jeu;
 import fr.nuitdelinfo.EcoSocks.exceptions.NotFoundException;
 import fr.nuitdelinfo.EcoSocks.repositories.JeuRepository;
@@ -7,8 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-import java.util.Random;
+import java.util.*;
 
 @Service
 public class JeuService {
