@@ -43,10 +43,14 @@ public class JeuService {
     public List<GetScoreResponse> getScore() {
         List<Jeu> scores = this.jeuRepository.findAll();
         scores.sort(Comparator.comparingInt(Jeu::getScore));
-        return scores.stream().map(x ->
+        List<Jeu> scoresReturn = new ArrayList<>();
+        for(int i = 0; i < Math.min(5, scores.size()); i++){
+            scoresReturn.add(scores.get(i));
+        }
+        return scoresReturn.stream().map(x ->
                 GetScoreResponse.builder()
                         .score(x.getScore())
-                        .utilisateur(null)
+                        // .utilisateur(null)
                         .build()).toList();
     }
 }

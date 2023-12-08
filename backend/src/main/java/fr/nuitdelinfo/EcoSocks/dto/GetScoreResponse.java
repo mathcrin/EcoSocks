@@ -8,6 +8,6 @@ import lombok.*;
 @Getter
 @Setter
 public class GetScoreResponse {
-    private String utilisateur;
+    // private String utilisateur;
     private Integer score;
 }
