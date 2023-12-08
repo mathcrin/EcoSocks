@@ -3,6 +3,7 @@ package fr.nuitdelinfo.EcoSocks.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,8 +13,9 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Table(name = "jeu")
-public class Jeu {
+public class Jeu implements Serializable {
     @Id
     @Column(name = "id", nullable = false)
     private Integer id;

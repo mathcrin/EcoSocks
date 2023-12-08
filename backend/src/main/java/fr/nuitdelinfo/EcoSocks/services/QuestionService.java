@@ -54,7 +54,8 @@ public class QuestionService {
         }
         List<Carte> cartes = questionRepository.findAll();
         Jeu finalJ = j;
-        cartes = cartes.stream().filter(x -> !finalJ.getIdParcourus().contains(x)).toList();
+        if (optJeu.isPresent())
+            cartes = cartes.stream().filter(x -> !finalJ.getIdParcourus().contains(x)).toList();
         if (cartes.isEmpty()) {
             return null;
         }
@@ -63,5 +64,9 @@ public class QuestionService {
         j.getIdParcourus().add(temp);
         jeuRepository.save(j);
         return temp;
+    }
+
+    public List<Carte> ajouterCartes(List<Carte> cartes) {
+        return questionRepository.saveAll(cartes);
     }
 }

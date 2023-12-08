@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.validator.constraints.URL;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Getter
@@ -14,9 +15,10 @@ import java.util.List;
 @Entity
 @Builder
 @NoArgsConstructor
+@ToString
 @AllArgsConstructor
 @Table(name = "carte")
-public class Carte {
+public class Carte implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -29,10 +31,10 @@ public class Carte {
     @Column(name = "image_url", length = 500)
     private String imageURL;
 
-    @Column(name = "emission_co2", nullable = false)
+    @Column(name = "emission_co2")
     private Double emissionCO2;
 
-    @Column(name = "intitule", nullable = false, length = 500)
+    @Column(name = "intitule", length = 500)
     private String intitule;
 
     @ManyToMany
