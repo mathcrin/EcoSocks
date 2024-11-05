@@ -29,6 +29,6 @@ mvn spring-boot:run
 Installer Angular et utiliser la commande dans le dossier frontend :
 ng serve
 
-Les membres de notre équipe : 
+# Les membres de notre équipe : 
 Adrien Blassel, Aurelie Chevry, Johan Marlière, Logan Bauvois, Loïc Flament, Théo Lorthioir et Mathis Crinchon.
 
