@@ -1,6 +1,8 @@
 # EcoSocks projet Nuit de L'info 2023
 Maître laissez-moi nettoyer vos Sho7 Sal de manière éco-responsable
 
+Lien du sujet 2023 : https://www.nuitdelinfo.com/nuitinfo/_media/sujets:sujet_n2i_2023.pdf
+
 Bonjour !
 
 Voici notre projet
@@ -26,3 +28,7 @@ mvn spring-boot:run
 ##Frontend :
 Installer Angular et utiliser la commande dans le dossier frontend :
 ng serve
+
+Les membres de notre équipe : 
+Adrien Blassel, Aurelie Chevry, Johan Marlière, Logan Bauvois, Loïc Flament, Théo Lorthioir et Mathis Crinchon.
+
